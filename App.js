@@ -72,9 +72,9 @@ export default function App() {
           <Text style={styles.txtAdd}>Ajouter</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView style={styles.todosContainer} showsVerticalScrollIndicator={false}>
-        {todos.length > 0 ? <FlatList data={filterTodos()} keyExtractor={item => item.id} renderItem={({ item }) => <TodoItem todo={item} toogleTodo={toogleTodo} editTodo={editTodo} deleteTodo={deleteTodo} />} /> : <Text style={styles.txt}>Aucune tache a faire pur le moment</Text>}
-      </ScrollView>
+      <View style={styles.todosContainer}>
+        {todos.length > 0 ? <FlatList data={filterTodos()} showsVerticalScrollIndicator={false} keyExtractor={item => item.id} renderItem={({ item }) => <TodoItem todo={item} toogleTodo={toogleTodo} editTodo={editTodo} deleteTodo={deleteTodo} />} /> : <Text style={styles.txt}>Aucune tache a faire pur le moment</Text>}
+      </View>
       {todos.length > 0 && <TodosFilter setFilter={setFilter} filter={filter} />}
       {todos.length > 0 && <TouchableOpacity onPress={() => setIsVisible(true)} style={styles.msgContainer}>
         <Text style={styles.msg}>Supprimer toutes les taches</Text>
